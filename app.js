@@ -12,7 +12,7 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://admin:admin123@ds225294.mlab.com:25294/local_library';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://admin:admin123@ds225294.mlab.com:25294/local_library';
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
